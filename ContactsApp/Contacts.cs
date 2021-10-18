@@ -39,7 +39,7 @@ namespace ContactsApp
                     char[] familyChar = value.ToCharArray();
 
                     //1 элемент массива в верхний регистр.
-                    familyChar[0] = char.ToUpper(familyChar[0]);
+                    familyChar[0] = char.ToUpper(familyChar[0]);/* Запись фамилии с большой буквы*/
 
                     //Переписываем в стринг
                     string familyString = new string(familyChar);
@@ -71,7 +71,7 @@ namespace ContactsApp
                     char[] familyChar = value.ToCharArray();
 
                     //1 элемент массива в верхний регистр.
-                    familyChar[0] = char.ToUpper(familyChar[0]);
+                    familyChar[0] = char.ToUpper(familyChar[0]);/* Запись имени с большой буквы*/
 
                     //Переписываем в стринг
                     string familyString = new string(familyChar);
