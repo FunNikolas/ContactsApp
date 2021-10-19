@@ -34,7 +34,7 @@ namespace ContactsApp
         /// <param name="filename"></param>
         public static Project LoadFromFile(string filename)
         {
-            //Создаём экземпляр сериализатора
+            //Создаём экземпляр десериализатора
             JsonSerializer serializer = new JsonSerializer();
 
             //Открываем поток для чтения из файла с указанием пути
