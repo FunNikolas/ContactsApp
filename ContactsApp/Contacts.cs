@@ -11,6 +11,9 @@ namespace ContactsApp
     /// </summary>
     public class Contacts
     {
+        /// <summary>
+        /// поле класса Фамилия
+        /// </summary>
         private string _surname;
         private string _name;
         private PhoneNumber _number;
