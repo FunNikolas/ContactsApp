@@ -15,10 +15,30 @@ namespace ContactsApp
         /// поле класса Фамилия
         /// </summary>
         private string _surname;
+
+        /// <summary>
+        /// поле класса Имя
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// поле класса Номер телефона
+        /// </summary>
         private PhoneNumber _number;
+
+        /// <summary>
+        /// поле класса Дата рождения
+        /// </summary>
         private DateTime _birthDate;
+
+        /// <summary>
+        /// поле класса Айди вк
+        /// </summary>
         private string _vkId;
+
+        /// <summary>
+        /// поле класса Почта
+        /// </summary>
         private string _email;
 
         /// <summary>
@@ -34,20 +54,11 @@ namespace ContactsApp
                     throw new ArgumentException("Фамилия не должна быть больше 50 символов");
                 }
                 else
-                { 
-                    //Вся строка в нижний регистр.
-                    value.ToLower();
-
-                    //Представляем строку как массив чар.
-                    char[] familyChar = value.ToCharArray();
-
-                    //1 элемент массива в верхний регистр.
-                    familyChar[0] = char.ToUpper(familyChar[0]);/* Запись фамилии с большой буквы*/
-
-                    //Переписываем в стринг
-                    string familyString = new string(familyChar);
-
-                    //Вносим данные.
+                {
+                    value.ToLower();//всё с маленькой буквы
+                    char[] familyChar = value.ToCharArray();//представление строки как массив символов
+                    familyChar[0] = char.ToUpper(familyChar[0]);//первый символ с большой буквы
+                    string familyString = new string(familyChar);//всё в строку
                     _surname = familyString;
                 }
             }
@@ -67,20 +78,11 @@ namespace ContactsApp
                 }
                 else
                 {
-                    //Вся строка в нижний регистр.
-                    value.ToLower();
-
-                    //Представляем строку как массив чар.
-                    char[] familyChar = value.ToCharArray();
-
-                    //1 элемент массива в верхний регистр.
-                    familyChar[0] = char.ToUpper(familyChar[0]);/* Запись имени с большой буквы*/
-
-                    //Переписываем в стринг
-                    string familyString = new string(familyChar);
-
-                    //Вносим данные.
-                    _surname = familyString;
+                    value.ToLower();//всё с маленькой буквы
+                    char[] nameChar = value.ToCharArray();//представление строки как массив символов
+                    nameChar[0] = char.ToUpper(nameChar[0]);//первый символ с большой буквы
+                    string nameString = new string(nameChar);//всё в строку
+                    _name = nameString;
                 }
             }
         }
@@ -96,7 +98,8 @@ namespace ContactsApp
                 //Дата рождения не может быть раньше 1 января 1900 года и позже нынешнего времени.
                 if (value < _birthDate || value > DateTime.Now)
                 {
-                    throw new ArgumentException("Вы ввели неправильную дату рождения.");
+                    throw new ArgumentException
+                        ("Вы ввели неправильную дату рождения.Введите дату, начиная с 1900 и не позже нынешней даты.");
                 }
                 else
                     _birthDate = value;
