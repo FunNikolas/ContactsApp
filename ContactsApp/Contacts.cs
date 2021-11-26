@@ -9,7 +9,7 @@ namespace ContactsApp
     /// <summary>
     /// Класс, описывающий контакты.
     /// </summary>
-    public class Contacts
+    public class Contacts : ICloneable
     {
         /// <summary>
         /// поле класса Фамилия
@@ -164,6 +164,15 @@ namespace ContactsApp
         /// </summary>
         public Contacts()
         {
+        }
+
+        /// <summary>
+        /// Реализация клонирования
+        /// </summary>
+        /// <returns>Возвращает объект - клон контакта, с полями: номер телефона, имя, фамилия, емейл, дата рождения, айди вк.</returns>
+        public object Clone()
+        {
+            return new Contacts(_number.Number, Name, Surname, Email, DateOfBirth, VKId);
         }
     }
 }

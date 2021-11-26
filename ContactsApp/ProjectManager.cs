@@ -16,8 +16,9 @@ namespace ContactsApp
         /// <summary>
         /// Стандартный путь к файлу.
         /// </summary>
-        public static readonly string Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
-                                                      "\\ContactsApp" + "\\ContactsApp.notes";
+        private static readonly string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+                                                      @"\\ContactsApp" + "\\ContactsApp.json";
+
         /// <summary>
         /// Функция, выполняющая сериализацию, для сохранения в файл
         /// </summary>
