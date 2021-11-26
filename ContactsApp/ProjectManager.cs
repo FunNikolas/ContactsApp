@@ -8,10 +8,18 @@ using Newtonsoft.Json;
 
 namespace ContactsApp
 {
+    /// <summary>
+    /// Класс, выполняющий сохранение и запись в файл
+    /// </summary>
     class ProjectManager
     {
         /// <summary>
-        /// Функция, выполняющая функцию сериализации
+        /// Стандартный путь к файлу.
+        /// </summary>
+        public static readonly string Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+                                                      "\\ContactsApp" + "\\ContactsApp.notes";
+        /// <summary>
+        /// Функция, выполняющая сериализацию, для сохранения в файл
         /// </summary>
         /// <param name="data"></param>
         /// <param name="filename">Путь к файлу</param>
@@ -29,7 +37,7 @@ namespace ContactsApp
             }
         }
         /// <summary>
-        /// Функция, выполняющая функцию десериализации
+        /// Функция, выполняющая десериализации, для чтения из файла
         /// </summary>
         /// <param name="filename"></param>
         public static Project LoadFromFile(string filename)

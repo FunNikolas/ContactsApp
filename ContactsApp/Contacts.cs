@@ -46,21 +46,17 @@ namespace ContactsApp
         /// </summary>
         public string Surname
         {
-            get { return _surname; }
+            get
+            {
+                return _surname; 
+            }
             set
             {
                 if (value.Length > 50)
                 {
                     throw new ArgumentException("Фамилия не должна быть больше 50 символов");
                 }
-                else
-                {
-                    value.ToLower();//всё с маленькой буквы
-                    char[] familyChar = value.ToCharArray();//представление строки как массив символов
-                    familyChar[0] = char.ToUpper(familyChar[0]);//первый символ с большой буквы
-                    string familyString = new string(familyChar);//всё в строку
-                    _surname = familyString;
-                }
+                _surname = value;
             }
         }
       
@@ -69,21 +65,17 @@ namespace ContactsApp
         /// </summary>>
         public string Name
         {
-            get { return _name; }
+            get
+            {
+                return _name;
+            }
             set
             {
                 if (value.Length > 50)
                 {
                     throw new ArgumentException("Имя должно содержать меньше 50 символов");
                 }
-                else
-                {
-                    value.ToLower();//всё с маленькой буквы
-                    char[] nameChar = value.ToCharArray();//представление строки как массив символов
-                    nameChar[0] = char.ToUpper(nameChar[0]);//первый символ с большой буквы
-                    string nameString = new string(nameChar);//всё в строку
-                    _name = nameString;
-                }
+                _name = value;
             }
         }
 
@@ -92,7 +84,10 @@ namespace ContactsApp
         /// </summary>
         public DateTime DateOfBirth
         {
-            get { return _birthDate; }
+            get
+            {
+                return _birthDate;
+            }
             set
             {
                 //Дата рождения не может быть раньше 1 января 1900 года и позже нынешнего времени.
@@ -101,7 +96,6 @@ namespace ContactsApp
                     throw new ArgumentException
                         ("Вы ввели неправильную дату рождения.Введите дату, начиная с 1900 и не позже нынешней даты.");
                 }
-                else
                     _birthDate = value;
             }
         }
@@ -127,7 +121,10 @@ namespace ContactsApp
         /// </summary>
         public string Email
         {
-            get { return _email; }
+            get 
+            { 
+                return _email; 
+            }
             set
             {
                 if (value.Length > 50)
@@ -139,6 +136,32 @@ namespace ContactsApp
             }
         }
 
+        /// <summary>
+        /// Конструктор класса с 6 входными параметрами.
+        /// </summary>
+        /// <param name="phoneNumber"></param> Номер телефона контакта.
+        /// <param name="name"></param> Имя контакта.
+        /// <param name="surname"></param> Фамилия контакта.
+        /// <param name="email"></param> E-mail контакта.
+        /// <param name="dateOfBirth"></param> Дата рождения контакта.
+        /// <param name="idVk"></param> ID Vk контакта.
+        public Contacts(long phoneNumber, string name, string surname, string email, DateTime dateOfBirth,
+            string idVk)
+        {
+            this._number.Number = phoneNumber;
+            Name = name;
+            Surname = surname;
+            Email = email;
+            DateOfBirth = dateOfBirth;
+            VKId = idVk;
+        }
+
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
+        public Contacts()
+        {
+        }
     }
 }
     

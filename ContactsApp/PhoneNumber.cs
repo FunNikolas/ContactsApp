@@ -8,13 +8,17 @@ namespace ContactsApp
 {
     class PhoneNumber
     {
+        ///<summary>
         private long _number;
         /// <summary>
         /// Класс,описывающий номер телефона
         /// </summary>
         public long Number
         {
-            get { return _number; }
+            get
+            {
+                return _number; 
+            }
             set
             { 
                 ///<summary>
@@ -27,10 +31,7 @@ namespace ContactsApp
                 /// </summary>
                 if (value > 99999999999 || value < 100000000)
                 { throw new ArgumentException("Номер телефона должен состоять из 11 цифр"); }
-                else
-                {
                     _number = value;
-                }
             }
         }
     }
