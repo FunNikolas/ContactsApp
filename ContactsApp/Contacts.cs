@@ -105,7 +105,10 @@ namespace ContactsApp
         /// </summary>
         public string VKId
         {
-            get { return _vkId; }
+            get
+            {
+                return _vkId;
+            }
             set
             {
                 if (value.Length > 15)
