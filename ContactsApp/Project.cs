@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ContactsApp;
+using ContactApp;
 
-namespace ContactsApp
+namespace ContactApp
 {
     /// <summary>
     /// Класс, содержащий лист всех контактов.
@@ -15,6 +15,6 @@ namespace ContactsApp
         /// <summary>
         /// Лист, который хранит в себе список контактов.
         /// </summary>
-        Contacts Contacts = new Contacts();
+        public Contact _contacts = new Contact();
     }
 }

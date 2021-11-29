@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContactsApp
+namespace ContactApp
 {
     class PhoneNumber
     {
         ///<summary>
+        ///поле класса номер телефона 
+        ///</summary>>
         private long _number;
+
         /// <summary>
         /// Класс,описывающий номер телефона
         /// </summary>
@@ -19,18 +22,20 @@ namespace ContactsApp
             {
                 return _number; 
             }
+            ///<summary>
+            ///Номер телефона контакта должен начинаться с 7 и должен состоять из 11 цифр
+            ///</summary>
             set
             { 
-                ///<summary>
-                ///Номер телефона контакта должен начинаться с 7
-                ///</summary>
                 if(value.ToString()[0]!='7')
-                { throw new ArgumentException("Введите номер телефона, начинающийся с 7."); }
-                ///<summary>
-                ///Номер телефона контакта должен состоять из 11 цифр
-                /// </summary>
+                { 
+                    throw new ArgumentException("Введите номер телефона, начинающийся с 7.");
+                }
+   
                 if (value > 99999999999 || value < 100000000)
-                { throw new ArgumentException("Номер телефона должен состоять из 11 цифр"); }
+                {
+                    throw new ArgumentException("Номер телефона должен состоять из 11 цифр");
+                }
                     _number = value;
             }
         }

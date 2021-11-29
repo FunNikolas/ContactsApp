@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContactsApp
+namespace ContactApp
 {
     /// <summary>
     /// Класс, описывающий контакты.
     /// </summary>
-    public class Contacts : ICloneable
+    public class Contact : ICloneable
     {
         /// <summary>
         /// поле класса Фамилия
@@ -29,7 +29,7 @@ namespace ContactsApp
         /// <summary>
         /// поле класса Дата рождения
         /// </summary>
-        private DateTime _birthDate;
+        private DateTime _dateofbirth;
 
         /// <summary>
         /// поле класса Айди вк
@@ -86,17 +86,18 @@ namespace ContactsApp
         {
             get
             {
-                return _birthDate;
+                return _dateofbirth;
             }
             set
             {
                 //Дата рождения не может быть раньше 1 января 1900 года и позже нынешнего времени.
-                if (value < _birthDate || value > DateTime.Now)
+                if (value < _dateofbirth || value > DateTime.Now)
                 {
                     throw new ArgumentException
-                        ("Вы ввели неправильную дату рождения.Введите дату, начиная с 1900 и не позже нынешней даты.");
+                        ("Вы ввели неправильную дату рождения.Введите дату, начиная" +
+                        " с 1900 и не позже нынешней даты.");
                 }
-                    _birthDate = value;
+                    _dateofbirth = value;
             }
         }
 
@@ -120,7 +121,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Почта контакта ограниченичена 50-ю символами
+        /// Почта контакта ограничена 50-ю символами
         /// </summary>
         public string Email
         {
@@ -142,13 +143,13 @@ namespace ContactsApp
         /// <summary>
         /// Конструктор класса с 6 входными параметрами.
         /// </summary>
-        /// <param name="phoneNumber"></param> Номер телефона контакта.
-        /// <param name="name"></param> Имя контакта.
-        /// <param name="surname"></param> Фамилия контакта.
-        /// <param name="email"></param> E-mail контакта.
-        /// <param name="dateOfBirth"></param> Дата рождения контакта.
-        /// <param name="idVk"></param> ID Vk контакта.
-        public Contacts(long phoneNumber, string name, string surname, string email, DateTime dateOfBirth,
+        /// <param name="phoneNumber">Номер телефона контакта.</param> 
+        /// <param name="name">Имя контакта.</param> .
+        /// <param name="surname">Фамилия контакта.</param> 
+        /// <param name="email">E-mail контакта.</param> 
+        /// <param name="dateOfBirth">Дата рождения контакта.</param> 
+        /// <param name="idVk">ID Vk контакта.</param> 
+        public Contact(long phoneNumber, string name, string surname, string email, DateTime dateOfBirth,
             string idVk)
         {
             this._number.Number = phoneNumber;
@@ -162,7 +163,7 @@ namespace ContactsApp
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public Contacts()
+        public Contact()
         {
         }
 
@@ -172,7 +173,7 @@ namespace ContactsApp
         /// <returns>Возвращает объект - клон контакта, с полями: номер телефона, имя, фамилия, емейл, дата рождения, айди вк.</returns>
         public object Clone()
         {
-            return new Contacts(_number.Number, Name, Surname, Email, DateOfBirth, VKId);
+            return new Contact(_number.Number, Name, Surname, Email, DateOfBirth, VKId);
         }
     }
 }

@@ -6,53 +6,66 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace ContactsApp
+namespace ContactApp
 {
     /// <summary>
     /// Класс, выполняющий сохранение и запись в файл
     /// </summary>
-    class ProjectManager
+    public class ProjectManager
     {
         /// <summary>
         /// Стандартный путь к файлу.
         /// </summary>
-        private static readonly string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
-                                                      @"\\ContactsApp" + "\\ContactsApp.json";
+        private static readonly string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                                                      @"\\ContactApp" + "\\ContactApp.json";
+        private static JsonReader reader;
+        private static TextWriter writer;
 
         /// <summary>
         /// Функция, выполняющая сериализацию, для сохранения в файл
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="project"></param>
         /// <param name="filename">Путь к файлу</param>
-        public static void SaveToFile(Project data, string filename)
+        public static void SaveToFile(Project project, string filename)
         {
             //создаём объект сериализатора
             JsonSerializer serializer = new JsonSerializer();
 
-            //Открываем поток для записи в файл с указанием пути
-            using (StreamWriter sw = new StreamWriter(filename))
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            try
+            {
+                //Открываем поток для записи в файл с указанием пути
+                using (StreamWriter sw = new StreamWriter(filename))
+                using (JsonWriter writer = new JsonTextWriter(sw)) ;
+            }
+            catch
             {
                 //Вызываем сериализацию и передаем объект, который хотим сериализовать
-                serializer.Serialize(writer, data);
+                serializer.Serialize(writer, project);
             }
+            return;
         }
         /// <summary>
         /// Функция, выполняющая десериализации, для чтения из файла
         /// </summary>
-        /// <param name="filename"></param>
+        /// <param name="filename">Путь до файла</param>
         public static Project LoadFromFile(string filename)
         {
-            //Создаём экземпляр десериализатора
-            JsonSerializer serializer = new JsonSerializer();
+            Project project2;
+            var serializer = new JsonSerializer();
 
-            //Открываем поток для чтения из файла с указанием пути
-            using (StreamReader sr = new StreamReader(filename))
-            using (JsonReader reader = new JsonTextReader(sr))
+            try
             {
+                //Открываем поток для чтения из файла с указанием пути
+                using (StreamReader sr = new StreamReader(filename))
+                using (JsonReader reader = new JsonTextReader(sr)) ;
                 //Вызываем десериализацию и явно преобразуем результат в целевой тип данных
-                return (Project)serializer.Deserialize<Project>(reader);
+                project2 = serializer.Deserialize<Project>(reader);
             }
+            catch
+            {
+                return new Project();
+            }
+            return project2;
         }
     }
 }
