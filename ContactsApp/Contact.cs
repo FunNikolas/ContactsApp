@@ -29,7 +29,7 @@ namespace ContactApp
         /// <summary>
         /// поле класса Дата рождения
         /// </summary>
-        private DateTime _dateofbirth;
+        private DateTime _dateOfBirth;
 
         /// <summary>
         /// поле класса Айди вк
@@ -86,18 +86,18 @@ namespace ContactApp
         {
             get
             {
-                return _dateofbirth;
+                return _dateOfBirth;
             }
             set
             {
                 //Дата рождения не может быть раньше 1 января 1900 года и позже нынешнего времени.
-                if (value < _dateofbirth || value > DateTime.Now)
+                if (value < _dateOfBirth || value > DateTime.Now)
                 {
                     throw new ArgumentException
                         ("Вы ввели неправильную дату рождения.Введите дату, начиная" +
                         " с 1900 и не позже нынешней даты.");
                 }
-                    _dateofbirth = value;
+                    _dateOfBirth = value;
             }
         }
 

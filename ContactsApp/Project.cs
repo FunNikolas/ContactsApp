@@ -12,9 +12,6 @@ namespace ContactApp
     /// </summary>
     public class Project
     {
-        /// <summary>
-        /// Лист, который хранит в себе список контактов.
-        /// </summary>
-        public Contact _contacts = new Contact();
+        public Contact _contacts { get; set; } = new Contact();
     }
 }

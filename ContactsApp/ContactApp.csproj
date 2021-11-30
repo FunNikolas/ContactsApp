@@ -7,8 +7,8 @@
     <ProjectGuid>{016D86BB-8049-4A72-AC2B-F32FAFBB6181}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ContactsApp</RootNamespace>
-    <AssemblyName>ContactsApp</AssemblyName>
+    <RootNamespace>ContactApp</RootNamespace>
+    <AssemblyName>ContactApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
