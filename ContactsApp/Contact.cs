@@ -24,7 +24,7 @@ namespace ContactApp
         /// <summary>
         /// поле класса Номер телефона
         /// </summary>
-        private PhoneNumber _number;
+        public PhoneNumber phoneNumber = new PhoneNumber();
 
         /// <summary>
         /// поле класса Дата рождения
@@ -152,7 +152,7 @@ namespace ContactApp
         public Contact(long phoneNumber, string name, string surname, string email, DateTime dateOfBirth,
             string idVk)
         {
-            this._number.Number = phoneNumber;
+            this.phoneNumber.Number = phoneNumber;
             Name = name;
             Surname = surname;
             Email = email;
@@ -173,7 +173,7 @@ namespace ContactApp
         /// <returns>Возвращает объект - клон контакта, с полями: номер телефона, имя, фамилия, емейл, дата рождения, айди вк.</returns>
         public object Clone()
         {
-            return new Contact(_number.Number, Name, Surname, Email, DateOfBirth, VKId);
+            return new Contact(phoneNumber.Number, Name, Surname, Email, DateOfBirth, VKId);
         }
     }
 }
