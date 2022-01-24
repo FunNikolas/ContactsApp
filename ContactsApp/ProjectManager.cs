@@ -14,64 +14,67 @@ namespace ContactApp
     public class ProjectManager
     {
         /// <summary>
-        /// Стандартный путь к файлу.
+        /// Путь по умолчанию по которому сохраняется файл.
         /// </summary>
-        public static readonly string Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                                                      @"\\ContactApp" + "\\ContactApp.json";
+        public static string FilePath()
+        {
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            return path + @"\ContactsApp\Contacts.json";
+        }
 
         /// <summary>
-        /// Функция, выполняющая сериализацию, для сохранения в файл
+        /// Путь по умолчанию по которому создается папка для файла.
         /// </summary>
-        /// <param name="project"></param>
-        /// <param name="filename">Путь к файлу</param>
-        public static void SaveToFile(Project project, string filename)
+        public static string DirectoryPath()
         {
-            //создаём объект сериализатора
-            JsonSerializer serializer = new JsonSerializer();
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            return path + @"\ContactsApp\";
+        }
 
-            try
+        /// <summary>
+        /// Метод сохранения данных в файл.
+        /// </summary>
+        /// <param name="data">Данные для сериализации.</param>
+        /// <param name="filePath">Путь до файла.</param>
+        /// <param name="directoryPath">Путь до папки.</param>
+        public static void SaveToFile(Project data, string filePath, string directoryPath)
+        {
+            if (!Directory.Exists(directoryPath))
             {
-                //Открываем поток для записи в файл с указанием пути
-                using (StreamWriter sw = new StreamWriter(filename))
-                using (JsonWriter writer = new JsonTextWriter(sw))
-                {
-                    //Вызываем сериализацию и передаем объект, который хотим сериализовать
-                    serializer.Serialize(writer, project);
-                }
-
+                Directory.CreateDirectory(directoryPath);
             }
-            catch
-            {  
+            var serializer = new JsonSerializer();
+            using (var streamwriter = new StreamWriter(filePath))
+            using (JsonWriter writer = new JsonTextWriter(streamwriter))
+            {
+                serializer.Serialize(writer, data);
             }
         }
+
         /// <summary>
-        /// Функция, выполняющая десериализации, для чтения из файла
+        /// Метод загрузки данных из файла.
         /// </summary>
-        /// <param name="filename">Путь до файла</param>
-        public static Project LoadFromFile(string filename)
+        /// /// <param name="filepath">Путь до файла</param>
+        public static Project LoadFromFile(string filepath)
         {
             Project project;
-            var serializer = new JsonSerializer();
+            if (!File.Exists(filepath))
+            {
+                return new Project();
+            }
 
+            var serializer = new JsonSerializer();
             try
             {
-                //Открываем поток для чтения из файла с указанием пути
-                using (StreamReader sr = new StreamReader(filename))
+                using (var sr = new StreamReader(filepath))
                 using (JsonReader reader = new JsonTextReader(sr))
-                {
-                    //Вызываем десериализацию и явно преобразуем результат в целевой тип данных
                     project = serializer.Deserialize<Project>(reader);
-
-                    if (project==null)
-                    {
-                        return new Project();
-                    }
-                }
             }
             catch
             {
                 return new Project();
             }
+
             return project;
         }
     }

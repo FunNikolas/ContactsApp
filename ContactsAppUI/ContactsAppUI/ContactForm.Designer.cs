@@ -1,6 +1,6 @@
 ﻿namespace ContactsAppUI
 {
-    partial class AddEditContactForm
+    partial class ContactForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditContactForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactForm));
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.PhoneTextBox = new System.Windows.Forms.TextBox();
@@ -191,7 +191,7 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // AddEditContactForm
+            // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -211,11 +211,12 @@
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.SurnameTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(495, 260);
             this.MinimumSize = new System.Drawing.Size(495, 260);
-            this.Name = "AddEditContactForm";
+            this.Name = "ContactForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AddEditContact";
-            this.Load += new System.EventHandler(this.AddEditContactForm_Load);
+            this.Text = "Add/Edit Contact";
+            this.Load += new System.EventHandler(this.ContactForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

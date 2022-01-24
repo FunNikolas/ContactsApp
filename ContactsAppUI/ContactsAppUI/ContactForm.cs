@@ -12,10 +12,10 @@ using ContactApp;
 
 namespace ContactsAppUI
 {
-    public partial class AddEditContactForm : Form
+    public partial class ContactForm : Form
     {
         //Создаем новый контакт.
-        private Contact _сontact = new Contact();
+        public Contact _current;
 
         //Строка, в которую записывается текст ошибки.
         private string _textException;
@@ -31,22 +31,22 @@ namespace ContactsAppUI
         //Метод, устанавливающий и возвращающий данные о контакте.
         public Contact Contact
         {
-            get { return _сontact; }
+            get { return _current; }
             set
             {
-                _сontact.Surname = value.Surname;
-                _сontact.Name = value.Name;
-                _сontact.phoneNumber.Number = value.phoneNumber.Number;
-                _сontact.DateOfBirth = value.DateOfBirth;
-                _сontact.Email = value.Email;
-                _сontact.VKId = value.VKId;
+                _current.Surname = value.Surname;
+                _current.Name = value.Name;
+                _current.phoneNumber.Number = value.phoneNumber.Number;
+                _current.DateOfBirth = value.DateOfBirth;
+                _current.Email = value.Email;
+                _current.VKId = value.VKId;
             }
         }
 
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
-        public AddEditContactForm()
+        public ContactForm()
         {
             InitializeComponent();
         }
@@ -100,7 +100,7 @@ namespace ContactsAppUI
 
             try
             {
-                _сontact.Surname = SurnameTextBox.Text;
+                _current.Surname = SurnameTextBox.Text;
 
                 //Разрешаем нажатие кнопки Ок из TextBox surname.
                 buttonOKisAvailableToClick_Surname = true;
@@ -138,7 +138,7 @@ namespace ContactsAppUI
 
             try
             {
-                _сontact.Name = NameTextBox.Text;
+                _current.Name = NameTextBox.Text;
 
                 //Разрешаем нажатие кнопки Ок из TextBox name.
                 buttonOKisAvailableToClick_Name = true;
@@ -173,7 +173,7 @@ namespace ContactsAppUI
 
             try
             {
-                _сontact.DateOfBirth = BirthdayTimePicker.Value;
+                _current.DateOfBirth = BirthdayTimePicker.Value;
 
                 //Разрешаем нажатие кнопки Ок из TextBox BirthdaytimePicker.
                 buttonOKisAvailableToClick_Birthday = true;
@@ -213,7 +213,7 @@ namespace ContactsAppUI
                 //Заполняем данные из TextBox*а, если в строке есть символы.
                 if (PhoneTextBox.Text.Length != 0)
                 {
-                    _сontact.phoneNumber.Number = Convert.ToInt64(PhoneTextBox.Text);
+                    _current.phoneNumber.Number = Convert.ToInt64(PhoneTextBox.Text);
 
                     //Разрешаем нажатие кнопки Ок из TextBox phone.
                     buttonOKisAvailableToClick_Phone = true;
@@ -261,7 +261,7 @@ namespace ContactsAppUI
 
             try
             {
-                _сontact.Email = EmailTextBox.Text;
+                _current.Email = EmailTextBox.Text;
 
                 //Разрешаем нажатие кнопки Ок из TextBox email.
                 buttonOKisAvailableToClick_Email = true;
@@ -299,7 +299,7 @@ namespace ContactsAppUI
 
             try
             {
-                _сontact.VKId = IdVkTextBox.Text;
+                _current.VKId = IdVkTextBox.Text;
 
                 //Разрешаем нажатие кнопки Ок из TextBox Id Vk.
                 buttonOKisAvailableToClick_IdVk = true;
@@ -330,18 +330,20 @@ namespace ContactsAppUI
         /// <summary>
         /// Заполняет форму для дальнейшего редактирования данных.
         /// </summary>
-        private void AddEditContactForm_Load(object sender, EventArgs e)
+        private void ContactForm_Load(object sender, EventArgs e)
         {
-            //Если выбран какой-либо контакт.
-            if (_сontact.Surname != null)
+            if (_current != null)
             {
-                //Заполняем форму данными выбранного контакта.
-                SurnameTextBox.Text = _сontact.Surname;
-                NameTextBox.Text = _сontact.Name;
-                BirthdayTimePicker.Value = _сontact.DateOfBirth;
-                PhoneTextBox.Text = _сontact.phoneNumber.Number.ToString();
-                EmailTextBox.Text = _сontact.Email;
-                IdVkTextBox.Text = _сontact.VKId;
+                NameTextBox.Text = _current.Name;
+                SurnameTextBox.Text = _current.Surname;
+                PhoneTextBox.Text = _current.phoneNumber.Number.ToString();
+                EmailTextBox.Text = _current.Email;
+                BirthdayTimePicker.Text = _current.DateOfBirth.ToString();
+                IdVkTextBox.Text = _current.VKId;
+            }
+            else
+            {
+                _current = new Contact();
             }
         }
 

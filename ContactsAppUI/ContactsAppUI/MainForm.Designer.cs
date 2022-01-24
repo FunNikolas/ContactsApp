@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,8 +50,8 @@
             this.AddContactButton = new System.Windows.Forms.Button();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BirthdayLabel = new System.Windows.Forms.Label();
             this.BirthdayEnum = new System.Windows.Forms.Label();
-            this.Birthday = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MenuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FindToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +62,9 @@
             this.RemoveContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddtoolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.EdittoolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.RemovetoolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -266,6 +270,7 @@
             this.RemoveContactButton.Name = "RemoveContactButton";
             this.RemoveContactButton.Size = new System.Drawing.Size(23, 23);
             this.RemoveContactButton.TabIndex = 15;
+            this.RemovetoolTip.SetToolTip(this.RemoveContactButton, "Click to remove a contact from the list.");
             this.RemoveContactButton.UseVisualStyleBackColor = true;
             this.RemoveContactButton.Click += new System.EventHandler(this.RemoveContactButton_Click_1);
             // 
@@ -279,19 +284,21 @@
             this.EditContactButton.Name = "EditContactButton";
             this.EditContactButton.Size = new System.Drawing.Size(23, 23);
             this.EditContactButton.TabIndex = 14;
+            this.EdittoolTip.SetToolTip(this.EditContactButton, "Click to edit the contact.");
             this.EditContactButton.UseVisualStyleBackColor = true;
             this.EditContactButton.Click += new System.EventHandler(this.EditContactButton_Click_1);
             // 
             // AddContactButton
             // 
             this.AddContactButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddContactButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.icons8_плюс_64__3_;
+            this.AddContactButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddContactButton.BackgroundImage")));
             this.AddContactButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AddContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddContactButton.Location = new System.Drawing.Point(6, 316);
             this.AddContactButton.Name = "AddContactButton";
             this.AddContactButton.Size = new System.Drawing.Size(23, 23);
             this.AddContactButton.TabIndex = 13;
+            this.AddtoolTip.SetToolTip(this.AddContactButton, "Click to add a contact to the list.");
             this.AddContactButton.UseVisualStyleBackColor = true;
             this.AddContactButton.Click += new System.EventHandler(this.AddContactButton_Click_1);
             // 
@@ -310,14 +317,24 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.BirthdayLabel);
             this.panel1.Controls.Add(this.BirthdayEnum);
-            this.panel1.Controls.Add(this.Birthday);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(3, 243);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(387, 103);
             this.panel1.TabIndex = 15;
+            // 
+            // BirthdayLabel
+            // 
+            this.BirthdayLabel.AutoSize = true;
+            this.BirthdayLabel.Location = new System.Drawing.Point(108, 12);
+            this.BirthdayLabel.Name = "BirthdayLabel";
+            this.BirthdayLabel.Size = new System.Drawing.Size(0, 13);
+            this.BirthdayLabel.TabIndex = 3;
             // 
             // BirthdayEnum
             // 
@@ -326,15 +343,6 @@
             this.BirthdayEnum.Name = "BirthdayEnum";
             this.BirthdayEnum.Size = new System.Drawing.Size(0, 13);
             this.BirthdayEnum.TabIndex = 2;
-            // 
-            // Birthday
-            // 
-            this.Birthday.AutoSize = true;
-            this.Birthday.Location = new System.Drawing.Point(102, 12);
-            this.Birthday.Name = "Birthday";
-            this.Birthday.Size = new System.Drawing.Size(132, 13);
-            this.Birthday.TabIndex = 1;
-            this.Birthday.Text = "Сегодня день рождения:";
             // 
             // pictureBox1
             // 
@@ -427,10 +435,11 @@
             this.Controls.Add(this.MenuStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(100, 100);
+            this.MinimumSize = new System.Drawing.Size(600, 370);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ContactsApp";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -480,9 +489,12 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label BirthdayEnum;
-        private System.Windows.Forms.Label Birthday;
         private System.Windows.Forms.Button AddContactButton;
         private System.Windows.Forms.Button EditContactButton;
         private System.Windows.Forms.Button RemoveContactButton;
+        private System.Windows.Forms.Label BirthdayLabel;
+        private System.Windows.Forms.ToolTip AddtoolTip;
+        private System.Windows.Forms.ToolTip EdittoolTip;
+        private System.Windows.Forms.ToolTip RemovetoolTip;
     }
 }
