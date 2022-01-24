@@ -42,6 +42,11 @@ namespace ContactApp
         private string _email;
 
         /// <summary>
+        /// Ограничение на устанавливаемую дату рождения (минимум 1 января 1900)
+        /// </summary>
+        private readonly DateTime _dateMinimum = new DateTime(1900, 01, 01);
+
+        /// <summary>
         /// Ограничение фамилии контакта в 50 символов
         /// </summary>
         public string Surname
@@ -55,6 +60,11 @@ namespace ContactApp
                 if (value.Length > 50)
                 {
                     throw new ArgumentException("Фамилия не должна быть больше 50 символов");
+                }
+                //Проверка на пустую строку.
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Вы ввели пустую строку. Повторите ввод.");
                 }
                 _surname = value;
             }
@@ -75,6 +85,12 @@ namespace ContactApp
                 {
                     throw new ArgumentException("Имя должно содержать меньше 50 символов");
                 }
+
+                //Проверка на пустую строку.
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Вы ввели пустую строку. Повторите ввод.");
+                }
                 _name = value;
             }
         }
@@ -90,14 +106,20 @@ namespace ContactApp
             }
             set
             {
-                //Дата рождения не может быть раньше 1 января 1900 года и позже нынешнего времени.
-                if (value < _dateOfBirth || value > DateTime.Now)
+                //Дата рождения не может быть раньше 1 января 1900 года.
+                if (value < _dateMinimum)
                 {
-                    throw new ArgumentException
-                        ("Вы ввели неправильную дату рождения.Введите дату, начиная" +
-                        " с 1900 и не позже нынешней даты.");
+                    throw new ArgumentException(
+                        "Вы ввели неправильную дату рождения.\nВведите дату, начиная с 1900 года.");
                 }
-                    _dateOfBirth = value;
+
+                //Дата рождения не может быть больше нынешней даты.
+                if (value > DateTime.Now)
+                {
+                    throw new ArgumentException(
+                        "Вы ввели неправильную дату рождения.\nДата рождения не может быть больше, чем нынешняя.");
+                }
+                _dateOfBirth = value;
             }
         }
 
@@ -116,6 +138,11 @@ namespace ContactApp
                 {
                     throw new ArgumentException("ID должен быть меньше 15 символов");
                 }
+                //Проверка на пустую строку.
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Вы ввели пустую строку. Повторите ввод.");
+                }
                 _vkId = value;
             }
         }
@@ -133,9 +160,14 @@ namespace ContactApp
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException("Максимальное количество символов = 50!");
+                    throw new ArgumentException(
+                        "Вы ввели e-mail, длиной более чем 50 символов.\nВведите e-mail, длиной до 50 символов.");
                 }
-
+                //Проверка на пустую строку.
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Вы ввели пустую строку. Повторите ввод.");
+                }
                 _email = value;
             }
         }

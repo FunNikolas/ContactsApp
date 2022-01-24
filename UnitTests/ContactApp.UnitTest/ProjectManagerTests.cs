@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using ContactApp; 
+using ContactApp;
 
-namespace ContactApp.UnitTest
+namespace ContactApp.UnitTests
 {
-    public class ContactTest
+    [TestFixture]
+    class ProjectManagerTest
     {
+      
 
     }
 }
