@@ -104,13 +104,22 @@
   <ItemGroup>
     <None Include="Resources\icons8-плюс-64 %283%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-плюс-64 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-редактировать-64 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-удалить-64 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>md $(SolutionDir)InstallScripts
-xcopy $(ProjectDir)$(OutDir)*.dll $(SolutionDir)InstallScripts\</PostBuildEvent>
+    <PostBuildEvent>md $(SolutionDir)InstallScriptsxcopy $(ProjectDir)$(OutDir)*.dll $(SolutionDir)InstallScripts\
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

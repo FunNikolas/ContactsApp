@@ -17,33 +17,30 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
+ChangesAssociations=yes
 DisableProgramGroupPage=yes
-LicenseFile=C:\Users\Пользователь\source\repos\ContactsApp\LICENSE
-OutputDir=Installers\
+OutputDir="Installers"
 OutputBaseFilename=ContactsApp_Setup
-SetupIconFile="C:\Users\Пользователь\Desktop\icon.ico"
+SetupIconFile="..\..\ContactsUI\{#MainForm-icon}"
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern;
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
-Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
+
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\Пользователь\source\repos\ContactsApp\ContactsApp\InstallScript\Release\ContactsApp.dll"; DestDir: "{app}"; 
-Source: "C:\Users\Пользователь\source\repos\ContactsApp\ContactsApp\InstallScript\Release\ContactsAppUI.exe"; DestDir: "{app}"; 
-Source: "C:\Users\Пользователь\source\repos\ContactsApp\ContactsApp\InstallScript\Release\Newtonsoft.Json.dll"; DestDir: "{app}";  
-
-
+Source: "Release\*.dll"; DestDir: "{app}";Flags: ignoreversion 
+Source: "Release\*.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}";IconFilename: "{app}\{#MainForm-icon}"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent

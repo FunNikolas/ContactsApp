@@ -45,14 +45,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.RemoveContactButton = new System.Windows.Forms.Button();
-            this.EditContactButton = new System.Windows.Forms.Button();
-            this.AddContactButton = new System.Windows.Forms.Button();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BirthdayLabel = new System.Windows.Forms.Label();
             this.BirthdayEnum = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MenuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FindToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,13 +61,17 @@
             this.AddtoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.EdittoolTip = new System.Windows.Forms.ToolTip(this.components);
             this.RemovetoolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.RemoveContactButton = new System.Windows.Forms.Button();
+            this.EditContactButton = new System.Windows.Forms.Button();
+            this.AddContactButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // FindTextBox
@@ -260,48 +260,6 @@
             this.splitContainer1.SplitterDistance = 230;
             this.splitContainer1.TabIndex = 14;
             // 
-            // RemoveContactButton
-            // 
-            this.RemoveContactButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RemoveContactButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RemoveContactButton.BackgroundImage")));
-            this.RemoveContactButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.RemoveContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RemoveContactButton.Location = new System.Drawing.Point(64, 316);
-            this.RemoveContactButton.Name = "RemoveContactButton";
-            this.RemoveContactButton.Size = new System.Drawing.Size(23, 23);
-            this.RemoveContactButton.TabIndex = 15;
-            this.RemovetoolTip.SetToolTip(this.RemoveContactButton, "Click to remove a contact from the list.");
-            this.RemoveContactButton.UseVisualStyleBackColor = true;
-            this.RemoveContactButton.Click += new System.EventHandler(this.RemoveContactButton_Click_1);
-            // 
-            // EditContactButton
-            // 
-            this.EditContactButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.EditContactButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditContactButton.BackgroundImage")));
-            this.EditContactButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.EditContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.EditContactButton.Location = new System.Drawing.Point(35, 316);
-            this.EditContactButton.Name = "EditContactButton";
-            this.EditContactButton.Size = new System.Drawing.Size(23, 23);
-            this.EditContactButton.TabIndex = 14;
-            this.EdittoolTip.SetToolTip(this.EditContactButton, "Click to edit the contact.");
-            this.EditContactButton.UseVisualStyleBackColor = true;
-            this.EditContactButton.Click += new System.EventHandler(this.EditContactButton_Click_1);
-            // 
-            // AddContactButton
-            // 
-            this.AddContactButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddContactButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddContactButton.BackgroundImage")));
-            this.AddContactButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.AddContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddContactButton.Location = new System.Drawing.Point(6, 316);
-            this.AddContactButton.Name = "AddContactButton";
-            this.AddContactButton.Size = new System.Drawing.Size(23, 23);
-            this.AddContactButton.TabIndex = 13;
-            this.AddtoolTip.SetToolTip(this.AddContactButton, "Click to add a contact to the list.");
-            this.AddContactButton.UseVisualStyleBackColor = true;
-            this.AddContactButton.Click += new System.EventHandler(this.AddContactButton_Click_1);
-            // 
             // ContactsListBox
             // 
             this.ContactsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -343,16 +301,6 @@
             this.BirthdayEnum.Name = "BirthdayEnum";
             this.BirthdayEnum.Size = new System.Drawing.Size(0, 13);
             this.BirthdayEnum.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 98);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // MenuStrip1
             // 
@@ -426,6 +374,58 @@
             this.AboutToolStripMenuItem.Text = "About";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
+            // RemoveContactButton
+            // 
+            this.RemoveContactButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveContactButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.icons8_удалить_64__1_;
+            this.RemoveContactButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RemoveContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RemoveContactButton.Location = new System.Drawing.Point(64, 316);
+            this.RemoveContactButton.Name = "RemoveContactButton";
+            this.RemoveContactButton.Size = new System.Drawing.Size(23, 23);
+            this.RemoveContactButton.TabIndex = 15;
+            this.RemovetoolTip.SetToolTip(this.RemoveContactButton, "Click to remove a contact from the list.");
+            this.RemoveContactButton.UseVisualStyleBackColor = true;
+            this.RemoveContactButton.Click += new System.EventHandler(this.RemoveContactButton_Click_1);
+            // 
+            // EditContactButton
+            // 
+            this.EditContactButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.EditContactButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.icons8_редактировать_64__1_;
+            this.EditContactButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.EditContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.EditContactButton.Location = new System.Drawing.Point(35, 316);
+            this.EditContactButton.Name = "EditContactButton";
+            this.EditContactButton.Size = new System.Drawing.Size(23, 23);
+            this.EditContactButton.TabIndex = 14;
+            this.EdittoolTip.SetToolTip(this.EditContactButton, "Click to edit the contact.");
+            this.EditContactButton.UseVisualStyleBackColor = true;
+            this.EditContactButton.Click += new System.EventHandler(this.EditContactButton_Click_1);
+            // 
+            // AddContactButton
+            // 
+            this.AddContactButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddContactButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.icons8_плюс_64__2_;
+            this.AddContactButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddContactButton.Location = new System.Drawing.Point(6, 316);
+            this.AddContactButton.Name = "AddContactButton";
+            this.AddContactButton.Size = new System.Drawing.Size(23, 23);
+            this.AddContactButton.TabIndex = 13;
+            this.AddtoolTip.SetToolTip(this.AddContactButton, "Click to add a contact to the list.");
+            this.AddContactButton.UseVisualStyleBackColor = true;
+            this.AddContactButton.Click += new System.EventHandler(this.AddContactButton_Click_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(93, 98);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -448,9 +448,9 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.MenuStrip1.ResumeLayout(false);
             this.MenuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
