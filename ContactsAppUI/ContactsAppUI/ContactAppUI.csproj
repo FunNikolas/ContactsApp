@@ -105,4 +105,12 @@
     <None Include="Resources\icons8-плюс-64 %283%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>md $(SolutionDir)InstallScripts
+xcopy $(ProjectDir)$(OutDir)*.dll $(SolutionDir)InstallScripts\</PostBuildEvent>
+  </PropertyGroup>
 </Project>
