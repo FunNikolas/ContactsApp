@@ -73,16 +73,6 @@ namespace ContactsAppUI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_плюс_64__3_ {
-            get {
-                object obj = ResourceManager.GetObject("icons8-плюс-64 (3)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icons8_редактировать_64__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-редактировать-64 (1)", resourceCulture);

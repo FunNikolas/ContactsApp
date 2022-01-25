@@ -39,7 +39,7 @@ namespace ContactApp
         /// <param name="substringForSearch"> Строка по которой ведется поиск.</param>
         /// <param name="contacts"> Список контактов для поиска.</param>
         /// <returns></returns>
-        public List<Contact> SortContacts(string substringForSearch)
+        public List<Contact> FindContacts(string substringForSearch)
         {
             var findProject = _contactsList;
             if (substringForSearch == "")

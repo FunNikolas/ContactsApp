@@ -57,7 +57,7 @@ namespace ContactsAppUI
             {
                 formlist.Add(editForm._current);
                 editForm.Close();
-                _project._contactsList = _project.SortContacts(FindTextBox.Text);
+                _project._contactsList = _project.FindContacts(FindTextBox.Text);
                 
             }
             _project._contactsList = _project.Sort(_project._contactsList);
@@ -71,7 +71,7 @@ namespace ContactsAppUI
         /// <param name="contact"></param>
         private void RefreshContactsList(Contact contact)
         {
-            formlist = _project.SortContacts(FindTextBox.Text);
+            formlist = _project.FindContacts(FindTextBox.Text);
             var index = formlist.FindIndex(x => x == contact);
             ContactsListBox.Items.Clear();
             foreach (var t in formlist)
@@ -209,7 +209,7 @@ namespace ContactsAppUI
         /// </summary>
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            OutputContacts(_project.SortContacts(FindTextBox.Text));
+            OutputContacts(_project.FindContacts(FindTextBox.Text));
         }
 
         /// <summary>
