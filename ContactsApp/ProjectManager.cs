@@ -74,7 +74,6 @@ namespace ContactApp
             {
                 return new Project();
             }
-
             return project;
         }
     }

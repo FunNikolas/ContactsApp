@@ -9,9 +9,8 @@ using ContactApp;
 namespace ContactApp.UnitTests
 {
     [TestFixture]
-    class ProjectManagerTest
+    public class ProjectManagerTest
     {
-      
-
+        
     }
 }
