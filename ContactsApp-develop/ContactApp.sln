@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactApp", "ContactsApp\ContactApp.csproj", "{016D86BB-8049-4A72-AC2B-F32FAFBB6181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactAppUI", "ContactsAppUI\ContactsAppUI\ContactAppUI.csproj", "{388F4D8D-B57C-47FD-A908-6CE8ADBE1BE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{215E99F8-321D-4215-99D6-3C1C5A5A4474}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactApp.UnitTest", "UnitTests\ContactApp.UnitTest\ContactApp.UnitTest.csproj", "{763ACE07-B5EB-4B7E-B3B2-4990C62FEB8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InstallScripts", "InstallScripts", "{B385C2D4-28B1-4C97-AADC-D8586A3ACC87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Release", "Release", "{C0C54B17-60F8-4CA1-BC36-A4E8458B7A07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installers", "Installers", "{BC5F0D78-0AA7-49EE-967F-DAA6F0864979}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{016D86BB-8049-4A72-AC2B-F32FAFBB6181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{016D86BB-8049-4A72-AC2B-F32FAFBB6181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{016D86BB-8049-4A72-AC2B-F32FAFBB6181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{016D86BB-8049-4A72-AC2B-F32FAFBB6181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388F4D8D-B57C-47FD-A908-6CE8ADBE1BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388F4D8D-B57C-47FD-A908-6CE8ADBE1BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388F4D8D-B57C-47FD-A908-6CE8ADBE1BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388F4D8D-B57C-47FD-A908-6CE8ADBE1BE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763ACE07-B5EB-4B7E-B3B2-4990C62FEB8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763ACE07-B5EB-4B7E-B3B2-4990C62FEB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763ACE07-B5EB-4B7E-B3B2-4990C62FEB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763ACE07-B5EB-4B7E-B3B2-4990C62FEB8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{763ACE07-B5EB-4B7E-B3B2-4990C62FEB8E} = {215E99F8-321D-4215-99D6-3C1C5A5A4474}
+		{C0C54B17-60F8-4CA1-BC36-A4E8458B7A07} = {B385C2D4-28B1-4C97-AADC-D8586A3ACC87}
+		{BC5F0D78-0AA7-49EE-967F-DAA6F0864979} = {B385C2D4-28B1-4C97-AADC-D8586A3ACC87}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {908DB0A4-6760-4016-86AC-D8D95E59984B}
+	EndGlobalSection
+EndGlobal
