@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\Tools.InnoSetup.6.2.0\build\Tools.InnoSetup.props" Condition="Exists('..\..\packages\Tools.InnoSetup.6.2.0\build\Tools.InnoSetup.props')" />
+  <Import Project="..\packages\Tools.InnoSetup.6.2.0\build\Tools.InnoSetup.props" Condition="Exists('..\packages\Tools.InnoSetup.6.2.0\build\Tools.InnoSetup.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EB4F1C13-FBCA-4CF8-9B31-AB4878BFCA7E}</ProjectGuid>
+    <ProjectGuid>{84CD5E05-6E7F-4032-AB19-DF256B94844D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Installer</RootNamespace>
@@ -48,16 +48,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="InstallScripts\installer.iss" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)packages\Tools.InnoSetup.6.2.0\tools\ISCC.exe" "$(SolutionDir)InstallScripts\installer.iss"</PostBuildEvent>
-  </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Tools.InnoSetup.6.2.0\build\Tools.InnoSetup.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Tools.InnoSetup.6.2.0\build\Tools.InnoSetup.props'))" />
+    <Error Condition="!Exists('..\packages\Tools.InnoSetup.6.2.0\build\Tools.InnoSetup.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tools.InnoSetup.6.2.0\build\Tools.InnoSetup.props'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>"$(SolutionDir)packages\Tools.InnoSetup.6.2.0\tools\ISCC.exe" "$(SolutionDir)Installer\InstallScripts\installer.iss"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

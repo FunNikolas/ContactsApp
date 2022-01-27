@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Contact.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -101,7 +104,9 @@
       <Name>ContactApp</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Contact.ico" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-плюс-64 %282%29.png" />
   </ItemGroup>
@@ -113,11 +118,19 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>rd /S /Q "$(SolutionDir)Installer\InstallScripts\Release"
+
+rd /S /Q "$(SolutionDir)Installer\InstallScripts\Installers"</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>md "$(SolutionDir)Installer\InstallScripts"
+
+md "$(SolutionDir)Installer\InstallScripts\Release"
+
+md "$(SolutionDir)Installer\InstallScripts\Installers"
+
+xcopy "$(ProjectDir)$(OutDir)*.dll" "$(SolutionDir)Installer\InstallScripts\Release\"
+
+xcopy "$(ProjectDir)$(OutDir)*.exe" "$(SolutionDir)Installer\InstallScripts\Release\"</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -4,10 +4,10 @@
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
-#define AppIconName "Cont.ico"
+#define AppIconName "Contact.ico"
 
 [Setup]
-AppId={{5692675C-AG66-56A3-B5AC-58960A32E4F5}
+AppId={{36BFC45E-FD1E-43AF-82C5-7595C2B9FEE2}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 DefaultDirName={pf}\{#MyAppName}
@@ -15,7 +15,7 @@ OutputBaseFilename=ContactsAppSetup
 ChangesAssociations=yes
 DisableProgramGroupPage=yes
 OutputDir="Installers"
-SetupIconFile="..\ContactsAppUI\{#AppIconName}"
+SetupIconFile="..\..\ContactsAppUI\ContactsAppUI\{#AppIconName}"
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -29,7 +29,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "Release\*.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\ContactsAppUI\{#AppIconName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\..\ContactsAppUI\ContactsAppUI\{#AppIconName}"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
