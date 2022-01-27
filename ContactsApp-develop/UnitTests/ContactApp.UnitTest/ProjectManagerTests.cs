@@ -7,11 +7,11 @@ using NUnit.Framework;
 using ContactApp;
 using System.IO;
 using System.Reflection;
+using ContactApp.UnitTest;
 
 namespace ContactApp.UnitTests
 {
-    namespace ContactsApp.UnitTest
-    {
+    
         public class ProjectManagerTests
         {
             public Project PrepareProject()
@@ -108,21 +108,6 @@ namespace ContactApp.UnitTests
             }
 
             [Test]
-            public void Test_LoadFromFile_CorrectProject_FileLoadedCorrectly()
-            {
-                //Setup
-                var expectedProject = PrepareProject();
-                var testDataFolder = Common.DataFolderForTest();
-                var testFileName = testDataFolder + @"\expectedProject.json";
-
-                //Act
-                var actualProject = ProjectManager.LoadFromFile(testFileName);
-
-                //Assert
-                Assert.AreEqual(expectedProject._contactsList, actualProject._contactsList);
-            }
-
-            [Test]
             public void Test_LoadFromFile_UnCorrectPath_ReturnEmptyProject()
             {
                 //Setup
@@ -161,5 +146,4 @@ namespace ContactApp.UnitTests
                 Assert.AreEqual(expectedPath, actualPath);
             }
         }
-    }
 }
